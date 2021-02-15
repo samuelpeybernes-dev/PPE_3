@@ -19,10 +19,7 @@
                
             </div>
             <br>
-         <div class="text-center">   
-         <a href="{{route('visites.create')}}"><button type="button" class=" btn btn-success ">Ajouter une visite</button></a>
-         </div>
-            <br>
+        
             
             <table class="table table-hover table-light ">
   <thead class="thead-dark">
