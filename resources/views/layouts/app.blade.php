@@ -76,5 +76,9 @@
             @yield('content')
         </main>
     </div>
+
+    <div class="svg-container">
+    <svg class="svg-content" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,192L480,64L960,160L1440,192L1440,320L960,320L480,320L0,320Z"></path></svg>
+    </div>
 </body>
 </html>
