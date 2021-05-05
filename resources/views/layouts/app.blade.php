@@ -19,8 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
-<body>
+
+
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -73,12 +74,24 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+       
     </div>
 
-    <svg class="svg-content" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,192L480,64L960,160L1440,192L1440,320L960,320L480,320L0,320Z"></path></svg>
 
+    <div class="curved">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,128L288,0L576,160L864,288L1152,32L1440,96L1440,0L1152,0L864,0L576,0L288,0L0,0Z"></path></svg>
+    </div>
+
+</head>
+
+
+<body>
+            @yield('content')
+            
+
+    <div class="curved">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,128L288,0L576,160L864,288L1152,32L1440,96L1440,320L1152,320L864,320L576,320L288,320L0,320Z"></path></svg>
+    </div>
+  
 </body>
 </html>
