@@ -78,9 +78,9 @@
     </div>
 
 
-    <div class="curved">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,128L288,0L576,160L864,288L1152,32L1440,96L1440,0L1152,0L864,0L576,0L288,0L0,0Z"></path></svg>
-    </div>
+    <br>
+<br>
+<br>
 
 </head>
 
