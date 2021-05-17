@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Personnel;
+use App\Models\Visiteur;
+use App\Models\Budget;
+use App\Models\User;
+use Illuminate\support\Facades\Auth;
 
 class PersonnelController extends Controller
 {
@@ -24,10 +28,14 @@ class PersonnelController extends Controller
      */
     public function create()
     {
-        return view('createVisiteur');
+        $personnel = Personnel::all();
+        $budget = Budget::all();
+        $visiteur = Visiteur::all();
+
+        return view('createVisiteur',['personnel'=>$personnel, 'budget'=>$budget, 'visiteur'=>$visiteur]);
     }
 
-    /**
+    /**²
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,26 +43,28 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        $visiteurs = Personnel::all();
+        $visiteurs = Visiteur::all();
 
         $request->validate([
-            'nomPersonnel' => ['required'],
-            'prenomPersonnel' => ['required'],
-            'email' => ['required'],
-            'mdp' => ['required'],
+            'idVisiteur' => ['required'],
+            'Objectif' => ['required'],
+            'Prime' => ['required'],
+            'avantage' => ['required'],
+            'idBudget' => ['required'],
         ]);
 
 
-        $visiteur =  new \App\Models\Personnel;
-        $visiteur->nomPersonnel = $request->input('nomPersonnel');
-        $visiteur->prenomPersonnel = $request->input('prenomPersonnel');
-        $visiteur->email = $request->input('email');
-        $visiteur->mdp = $request->input('mdp');
+        $visiteur =  new \App\Models\Visiteur;
+        $visiteur->idVisiteur = $request->input('idVisiteur');
+        $visiteur->Objectif = $request->input('Objectif');
+        $visiteur->Prime = $request->input('Prime');
+        $visiteur->avantage = $request->input('avantage');
+        $visiteur->idBudget = $request->input('idBudget');
 
-        $visiteur = Personnel::create($request->all());
+        $visiteur = Visiteur::create($request->all());
 
         $visiteur->save();
-        return view('responsableHome',['UnVisiteur'=>$visiteurs]);
+        return redirect('/home');
 
     
     }
@@ -67,9 +77,10 @@ class PersonnelController extends Controller
      */
     public function show($id)
     {
-        $visiteur = Personnel::find($id);
+        $visiteur = Personnel::find($id);       
         return view('infoVisiteur', ['UnVisiteur'=>$visiteur]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -102,8 +113,8 @@ class PersonnelController extends Controller
      */
     public function destroy($id)
     {
-        $visiteur = App\Models\Personnel::find($id);
+        $visiteur = Visiteur::find($id);
         $visiteur->delete();
-        return redirect(visiteur);
+        return redirect("home");
     }
 }

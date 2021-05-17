@@ -7,6 +7,9 @@ use App\Models\Visite;
 use App\Models\Produit;
 use App\Models\Praticien;
 use App\Models\Visiteur;
+use App\Models\Budget;
+use App\Models\Personnel;
+
 use Illuminate\support\Facades\Auth;
 use App\Models\User;
 

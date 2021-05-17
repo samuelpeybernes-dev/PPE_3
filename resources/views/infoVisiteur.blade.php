@@ -16,6 +16,9 @@
       <th scope="col">Prenom</th>
       <th scope="col">Matricule</th>
       <th scope="col">Email</th>
+      <th scope="col">Budget</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
 
@@ -26,6 +29,8 @@
       <td>{{$UnVisiteur->prenomPersonnel}}</td>
       <td>{{$UnVisiteur->matriculePersonnel}}</td>
       <td>{{$UnVisiteur->email}}</td>
+      <td>{{$UnVisiteur->sold}}</td>
+      <td><a href=""><button  type="button" class="btn btn-info">Visites</button></a></td>
     </tr>
   </tbody>
 

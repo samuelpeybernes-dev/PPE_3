@@ -47,6 +47,12 @@
       <td>{{$UnVisiteur->nomVisiteur}}</td>
       <td>{{$UnVisiteur->prenomVisiteur}}</td>
       <td>{{$UnVisiteur->emailVisiteur}}</td>
+      <td><a href="{{route('visiteurs.show', $UnVisiteur->idVisiteur)}}"><button  type="button" class="btn btn-info">Information</button></a></td>
+      <td><form action="{{route('visiteurs.destroy', $UnVisiteur->idVisiteur)}}" method="POST">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger">Supprimer</button>
+      </form></td>
     </tr>
   </tbody>
   @endforeach
