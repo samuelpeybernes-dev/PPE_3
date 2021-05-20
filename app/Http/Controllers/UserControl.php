@@ -10,6 +10,6 @@ class UserControl extends Controller
 {
     public function getUsers(){
         $users = User::all();
-        return view ('responsableHome',['utilisateurs'=>$users]);
+        return view ('Responsables/responsableHome',['utilisateurs'=>$users]);
     }
 }

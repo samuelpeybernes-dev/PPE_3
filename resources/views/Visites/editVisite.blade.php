@@ -9,7 +9,7 @@
         <br>
             <div class="card">
           
-                <div class="card-header">{{ __("Ajouter une visite") }}</div>
+                <div class="card-header">{{ __("Editer une visite") }}</div>
 
                 <div class="card-body">
 

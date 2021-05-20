@@ -22,9 +22,6 @@
             <br>
          <div class="text-center">   
          <a href="{{route('visiteurs.create')}}"><button type="button" class=" btn btn-success ">Ajouter un visiteur</button></a>
-         </div> <br>
-         <div class="text-center">   
-         <a href="{{route('visites.create')}}"><button type="button" class=" btn btn-success ">Ajouter une visite</button></a>
          </div>
             <br>
 
@@ -34,7 +31,7 @@
       <th scope="col">Id</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
-      <th scope="col">Email</th>
+      <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -46,8 +43,9 @@
       <td>{{$UnVisiteur->idVisiteur}}</td>
       <td>{{$UnVisiteur->nomVisiteur}}</td>
       <td>{{$UnVisiteur->prenomVisiteur}}</td>
-      <td>{{$UnVisiteur->emailVisiteur}}</td>
-      <td><a href="{{route('visiteurs.show', $UnVisiteur->idVisiteur)}}"><button  type="button" class="btn btn-info">Information</button></a></td>
+      <td><a href="{{route('visiteurs.show', $UnVisiteur->idVisiteur)}}" ><button type="button" class="btn btn-info">Information</button></a></td>
+      <td><a href="{{route ('listevisite.show' , $UnVisiteur->idVisiteur) }}"><button type="button" class="btn btn-info">Visites</button></a></td>
+      <td><a href="{{route('creevisite.show' , $UnVisiteur->idVisiteur)}}"><button type="button" class="btn btn-info">Ajouter une visite</button></a></td>
       <td><form action="{{route('visiteurs.destroy', $UnVisiteur->idVisiteur)}}" method="POST">
       @csrf
       @method('DELETE')

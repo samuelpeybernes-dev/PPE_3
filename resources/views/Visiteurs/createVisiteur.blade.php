@@ -23,9 +23,11 @@
                                     <div class="col-md-6">
                                         <select class="form-control col-sm-6" name="idVisiteur">
                                     
-                                            @foreach ($personnel as $personnel)
-                                            <option value="{{$personnel['idPersonnel']}}">{{$personnel['prenomPersonnel']}}
+                                            @foreach ($personnel_sans_categorie as $personnel_sans_categorie)
+                                            
+                                            <option value="{{$personnel_sans_categorie['idPersonnel']}}">{{$personnel_sans_categorie['prenomPersonnel']}}
                                             </option>
+                                            
                                             @endforeach  
                                        
                                         </select>

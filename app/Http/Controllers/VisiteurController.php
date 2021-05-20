@@ -37,7 +37,7 @@ class VisiteurController extends Controller
         $praticien = Praticien::all();
         $user = Visiteur::all();
 
-        return view('createVisite',['medoc'=>$medoc, 'praticien'=>$praticien, 'visiteur'=>$user]);
+        return view('Visites/createVisite',['medoc'=>$medoc, 'praticien'=>$praticien, 'visiteur'=>$user]);
     }
 
     /**
@@ -84,7 +84,7 @@ class VisiteurController extends Controller
     public function show($id)
     {
         $visite = Visite::find($id);
-        return view('infoVisite', ['UneVisite'=>$visite]);
+        return view('Visites/infoVisite', ['UneVisite'=>$visite]);
     }
 
     /**
@@ -99,7 +99,7 @@ class VisiteurController extends Controller
         $medoc = Produit::all();
         $praticien = Praticien::all();
         $user = Auth::user();
-        return view('editVisite',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien, 'visiteur'=>$user]);
+        return view('Visites/editVisite',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien, 'visiteur'=>$user]);
         
     }
 

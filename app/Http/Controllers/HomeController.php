@@ -35,7 +35,7 @@ class HomeController extends Controller
 
         if(Visiteur::find($id)){
             $lesVisites = Visite::all();
-            return view("visiteurHome",['UneVisite'=>$lesVisites, 'visiteur'=>$id]);
+            return view("Visiteurs/visiteurHome",['UneVisite'=>$lesVisites, 'visiteur'=>$id]);
         }
 
         if(Responsable::find($id)){
@@ -50,7 +50,7 @@ class HomeController extends Controller
                 
             }
         
-            return view("responsablehome",['lesVisiteurs'=>$lesVisiteurs]);
+            return view("Responsables/responsablehome",['lesVisiteurs'=>$lesVisiteurs]);
         }
 
         if(Admin::find($id)){

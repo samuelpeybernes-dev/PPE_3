@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Personnel;
 use App\Models\Visiteur;
 use App\Models\Budget;
-use App\Models\User;
+use App\Models\personnel_sans_categorie;
 use Illuminate\support\Facades\Auth;
 
 class PersonnelController extends Controller
@@ -31,8 +31,10 @@ class PersonnelController extends Controller
         $personnel = Personnel::all();
         $budget = Budget::all();
         $visiteur = Visiteur::all();
+        $personnel_sans_categorie = personnel_sans_categorie::all();
 
-        return view('createVisiteur',['personnel'=>$personnel, 'budget'=>$budget, 'visiteur'=>$visiteur]);
+        return view('Visiteurs/createVisiteur',['personnel'=>$personnel, 'budget'=>$budget, 'visiteur'=>$visiteur,
+         'personnel_sans_categorie'=>$personnel_sans_categorie]);
     }
 
     /**²
@@ -78,7 +80,7 @@ class PersonnelController extends Controller
     public function show($id)
     {
         $visiteur = Personnel::find($id);       
-        return view('infoVisiteur', ['UnVisiteur'=>$visiteur]);
+        return view('Visiteurs/infoVisiteur', ['UnVisiteur'=>$visiteur]);
     }
     
 
