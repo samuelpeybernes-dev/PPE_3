@@ -24,5 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/users', [App\Http\Controllers\UserControl::class, 'getUsers']);
 Route::resource('visiteurs','App\Http\Controllers\PersonnelController');  
 Route::resource('visites','App\Http\Controllers\VisiteurController');  
-Route::resource('listevisite', 'App\Http\Controllers\listevisiteController');
-Route::resource('creevisite', 'App\Http\Controllers\CreateVisiteController');
+Route::resource('listevisite', 'App\Http\Controllers\listevisiteController'); //route controller affichant liste visite et edition bilan
+Route::resource('creevisite', 'App\Http\Controllers\CreateVisiteController'); //route controller permentant de récupérer l'id du visiteur selectioné pour lui créé une visite
+Route::resource('createActivite', 'App\Http\Controllers\ActiviteController');

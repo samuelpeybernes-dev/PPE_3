@@ -42,7 +42,7 @@
       <td>{{$UneVisite->dateVisite}}</td>
       <td>{{$UneVisite->motifVisite}}</td>
       <td>{{$UneVisite->medocPresente}}</td>
-      <td><a href="{{route('listevisite.edit', $UneVisite->idVisite)}}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+      <td><a href="{{route('listevisite.edit', $UneVisite->idVisite)}}"><button type="button" class="btn btn-primary">Modifier bilan</button></a></td>
       <td><a href="{{route('visites.show', $UneVisite->idVisite)}}"><button  type="button" class="btn btn-info">Information</button></a></td>
       <td><form action="{{route('visites.destroy', $UneVisite->idVisite)}}" method="POST">
       @csrf

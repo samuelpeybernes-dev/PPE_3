@@ -16,6 +16,7 @@
       <th scope="col">Date de Visite</th>
       <th scope="col">Motif de visite</th>
       <th scope="col">Medicament Présenté</th>
+      <th scope="col">Bilan</th>
     </tr>
   </thead>
 
@@ -25,7 +26,7 @@
       <td>{{$UneVisite->dateVisite}}</td>
       <td>{{$UneVisite->motifVisite}}</td>
       <td>{{$UneVisite->medocPresente}}</td>
-
+      <td>{{$UneVisite->bilanVisite}}</td>
     
     </tr>
   </tbody>
