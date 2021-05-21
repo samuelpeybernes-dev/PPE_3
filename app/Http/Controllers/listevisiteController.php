@@ -7,6 +7,7 @@ use App\Models\Visite;
 use App\Models\Visiteur;
 use App\Models\Produit;
 use App\Models\Praticien;
+use App\Models\Activite;
 
 class listevisiteController extends Controller
 {
@@ -52,8 +53,9 @@ class listevisiteController extends Controller
         $visiteur = Visiteur::find($id);
         $idvisiteur = $visiteur->idVisiteur;
         $lesVisites = Visite::all();
+        $lesActivite = Activite::all();
         //dd($visite);
-        return view('Responsables/listevisite', ['visiteur'=>$idvisiteur], ['UneVisite'=>$lesVisites]);
+        return view('Responsables/listevisite', ['visiteur'=>$idvisiteur, 'UneVisite'=>$lesVisites, 'UneActivite'=>$lesActivite]);
     }
 
     /**
@@ -72,7 +74,7 @@ class listevisiteController extends Controller
         $idPraticien = $visite->idPraticien;
         $praticien = Praticien::find($idPraticien);
 
-        return view('Visites/editBilan',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien]);
+        return view('Visites/editBilanVisiteur',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien]);
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Models\Visiteur;
 use App\Models\Responsable;
 use App\Models\Admin;
 use App\Models\Visite;
+use App\Models\Activite;
 use App\Models\User;
 
 class HomeController extends Controller
@@ -35,7 +36,9 @@ class HomeController extends Controller
 
         if(Visiteur::find($id)){
             $lesVisites = Visite::all();
-            return view("Visiteurs/visiteurHome",['UneVisite'=>$lesVisites, 'visiteur'=>$id]);
+            $lesActivite = Activite::all();
+
+            return view("Visiteurs/visiteurHome",['UneVisite'=>$lesVisites, 'UneActivite'=>$lesActivite, 'visiteur'=>$id]);
         }
 
         if(Responsable::find($id)){

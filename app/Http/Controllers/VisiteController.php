@@ -13,7 +13,7 @@ use App\Models\Personnel;
 use Illuminate\support\Facades\Auth;
 use App\Models\User;
 
-class VisiteurController extends Controller
+class VisiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,6 +24,7 @@ class VisiteurController extends Controller
     {
         $Visites = Visite::all();
         return view('home',['UneVisite'=>$Visites]);
+
     }
 
     /**
@@ -33,11 +34,12 @@ class VisiteurController extends Controller
      */
     public function create()
     {
-        $medoc = Produit::all();
+       /* $medoc = Produit::all();
         $praticien = Praticien::all();
         $user = Visiteur::all();
 
         return view('Visites/createVisite',['medoc'=>$medoc, 'praticien'=>$praticien, 'visiteur'=>$user]);
+        */
     }
 
     /**
@@ -64,6 +66,7 @@ class VisiteurController extends Controller
         $visite->dateVisite = $request->input('dateVisite');
         $visite->motifVisite = $request->input('motifVisite');
         $visite->medocPresente = $request->input('medocPresente');
+        $visite->bilanVisite = $request->input('bilan');
         $visite->idVisiteur = $request->input('idVisiteur');
         $visite->idPraticien = $request->input('idPraticien');
 
@@ -98,8 +101,7 @@ class VisiteurController extends Controller
         $visite = \App\Models\Visite::find($id);
         $medoc = Produit::all();
         $praticien = Praticien::all();
-        $user = Auth::user();
-        return view('Visites/editVisite',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien, 'visiteur'=>$user]);
+        return view('Visites/editVisiteResp',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien]);
         
     }
 

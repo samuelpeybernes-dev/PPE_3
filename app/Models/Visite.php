@@ -14,7 +14,7 @@ class Visite extends Model
     public $timestamps = false;
     
     protected $fillable = [
-        'dateVisite', 'motifVisite', 'medocPresente', 'idVisiteur', 'idPraticien'
+        'dateVisite', 'motifVisite', 'medocPresente', 'bilanVisite', 'idVisiteur', 'idPraticien'
     ];
 
     public function visiteurs(){

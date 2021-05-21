@@ -14,6 +14,6 @@ class Activite extends Model
     public $timestamps = false;
     
     protected $fillable = [
-        'compteRendu', 'numAccord', 'medocPresente', 'theme', 'cocktailOffert', 'idVisiteur'
+        'idActivite', 'compteRendu', 'numAccord', 'theme', 'cocktailOffert', 'idVisiteur'
     ];
 }

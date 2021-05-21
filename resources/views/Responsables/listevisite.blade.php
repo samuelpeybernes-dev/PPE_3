@@ -7,6 +7,10 @@
             <a href="{{url('home')}}"><button type="button" class="btn btn-primary">Retour</button></a>
             <br>
             <br>
+
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header">{{ __('Gestion des visites') }}</div>
+            </div>
             <table class="table table-hover table-light">
                 <thead class="thead-dark">
                     <tr>
@@ -42,6 +46,58 @@
                 </tbody>
                 @endforeach
             </table>
+<br>
+<br>
+
+
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header">{{ __('Gestion des activitées complémentaires') }}</div>
+            </div>
+        
+            <table class="table table-hover table-light ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">compteRendu</th>
+                        <th scope="col">numAccord</th>
+                        <th scope="col">theme</th>
+                        <th scope="col">cocktailOffert</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                @foreach ($UneActivite as $UneActivite)
+
+                @if ($visiteur == $UneActivite->idVisiteur)
+                <tbody>
+                    <tr>
+                        <th scope="row">{{$UneActivite->idActivite}}</th>
+                        <td>{{$UneActivite->compteRendu}}</td>
+                        <td>{{$UneActivite->numAccord}}</td>
+                        <td>{{$UneActivite->theme}}</td>
+                        <td>{{$UneActivite->cocktailOffert}}</td>
+                        @if($UneActivite->numAccord == true)
+                        <td><button class="btn btn-success">Validé</button></td>
+                        @else
+                        <td><a href="{{route('activite.edit', $visiteur)}}"><button type="button" class="btn btn-success">Donner accord</button></a></td>
+                        @endif
+                        <td>
+                            <form action="{{route('activite.destroy', $UneActivite->idActivite)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                </tbody>
+                @endif
+
+                @endforeach
+            </table>
+
         </div>
     </div>
 </div>

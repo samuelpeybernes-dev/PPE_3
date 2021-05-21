@@ -13,90 +13,64 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('activite.store') }}">
-                        @csrf
-
+                        @csrf                                         
 
                         <div class="form-group row">
-                            <label for="idVisiteur" class="col-md-4 col-form-label text-md-right">Nom
-                                Visiteur</label>
-                                
+                            <label for="compteRendu"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Compte rendu') }}</label>
+
                             <div class="col-md-6">
-                                <select class="form-control col-sm-6" name="idVisiteur">
-                            
-                                    @foreach ($personnel_sans_categorie as $personnel_sans_categorie)
-                                    
-                                    <option value="{{$personnel_sans_categorie['idPersonnel']}}">{{$personnel_sans_categorie['prenomPersonnel']}}
-                                    </option>
-                                    
-                                    @endforeach  
-                               
-                                </select>
+                                <input id="compteRendu" type="text"
+                                    class="form-control @error('compteRendu') is-invalid @enderror" name="compteRendu"
+                                    value="{{ old('compteRendu') }}" required autocomplete="compteRendu" autofocus>
+
+                                @error('compteRendu')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="theme"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Theme	') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="theme" type="text"
+                                    class="form-control @error('theme') is-invalid @enderror" name="theme"
+                                    value="{{ old('theme') }}" required autocomplete="theme" autofocus>
+
+                                @error('theme	')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cocktailOffert"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Cocktail Offert') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cocktailOffert" type="text"
+                                    class="form-control @error('cocktailOffert') is-invalid @enderror" name="cocktailOffert"
+                                    value="{{ old('cocktailOffert') }}" required autocomplete="cocktailOffert" autofocus>
+
+                                @error('cocktailOffert')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <input type="hidden" class="form-control" name="idVisiteur"
+                                value="{{$unVisiteur->idVisiteur}}" />
                         </div>
                         
-
-                        <div class="form-group row">
-                            <label for="Objectif"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Objectif') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="Objectif" type="text"
-                                    class="form-control @error('Objectif') is-invalid @enderror" name="Objectif"
-                                    value="{{ old('Objectif') }}" required autocomplete="Objectif" autofocus>
-
-                                @error('Objectif')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="Prime"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Prime') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="Prime" type="text"
-                                    class="form-control @error('Prime') is-invalid @enderror" name="Prime"
-                                    value="{{ old('Prime') }}" required autocomplete="Prime" autofocus>
-
-                                @error('Prime')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="avantage"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Avantage') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="avantage" type="text"
-                                    class="form-control @error('avantage') is-invalid @enderror" name="avantage"
-                                    value="{{ old('avantage') }}" required autocomplete="avantage" autofocus>
-
-                                @error('avantage')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="idBudget" class="col-md-4 col-form-label text-md-right">Budget</label>
-
-                            <div class="col-md-6">
-                                <select class="form-control col-sm-6" name="idBudget">
-                                    @foreach ($budget as $budget)
-                                    <option value="{{$budget['idBudget']}}">{{$budget['sold']}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
 
 
 

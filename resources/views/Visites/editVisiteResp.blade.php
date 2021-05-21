@@ -13,7 +13,7 @@
 
                 <div class="card-body">
 
-                    <form method="post" action="{{ route('visites.update', $visite->idVisite) }}">
+                    <form method="post" action="{{ route('listevisite.update', $visite->idVisite) }}">
                         {{ csrf_field() }}
                         {{ method_field('PUT')}}
                         <div class="form-group row">
@@ -43,7 +43,7 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <input type="hidden" class="form-control" name="idVisiteur"
-                                    value="{{$visiteur['idPersonnel']}}" />
+                                    value="{{$visite->idVisiteur}}" />
                             </div>
                         </div>
                         <div class="form-group row">

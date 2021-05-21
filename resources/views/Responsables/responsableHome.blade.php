@@ -44,7 +44,7 @@
       <td>{{$UnVisiteur->nomVisiteur}}</td>
       <td>{{$UnVisiteur->prenomVisiteur}}</td>
       <td><a href="{{route('visiteurs.show', $UnVisiteur->idVisiteur)}}" ><button type="button" class="btn btn-info">Information</button></a></td>
-      <td><a href="{{route ('listevisite.show' , $UnVisiteur->idVisiteur) }}"><button type="button" class="btn btn-info">Visites</button></a></td>
+      <td><a href="{{route ('listevisite.show' , $UnVisiteur->idVisiteur) }}"><button type="button" class="btn btn-info">Visites et Activitées</button></a></td>
       <td><a href="{{route('creevisite.show' , $UnVisiteur->idVisiteur)}}"><button type="button" class="btn btn-info">Ajouter une visite</button></a></td>
       <td><form action="{{route('visiteurs.destroy', $UnVisiteur->idVisiteur)}}" method="POST">
       @csrf
