@@ -51,6 +51,7 @@ class ActiviteController extends Controller
 
 
         $activite =  new \App\Models\Activite;
+        $activite->idActivite = $request->input('idActivite');
         $activite->compteRendu = $request->input('compteRendu');
         $activite->theme = $request->input('theme');
         $activite->cocktailOffert = $request->input('cocktailOffert');
@@ -73,7 +74,7 @@ class ActiviteController extends Controller
     {
         $visiteur = Visiteur::find($id);
         $idvisiteur = $visiteur->idVisiteur;
-        
+
         return view('Activites/createActivite', ['unVisiteur'=>$visiteur]);
     }
 
@@ -86,8 +87,18 @@ class ActiviteController extends Controller
     public function edit($id)
     {
         $activite = \App\Models\Activite::find($id);
+        //dd($activite);
         
-        return view('Activites/editRespActivite',compact('activite','id'));
+        if($activite->numAccord == false) {
+            $activite->numAccord = random_int (1000 , 5000);
+            $activite->save();
+            return redirect()->route('listevisite.show', $activite->idVisiteur);
+        }
+        else { 
+            $activite->numAccord = "";
+            $activite->save();
+            return redirect()->route('listevisite.show', $activite->idVisiteur);
+        }
     }
 
     /**
@@ -99,9 +110,10 @@ class ActiviteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $activite = Activite::find($id);
+       /* $activite = Activite::find($id);
         $activite->update($request->all());
         return redirect('/home');
+        */
     }
 
     /**
@@ -116,4 +128,6 @@ class ActiviteController extends Controller
         $activite->delete();
         return redirect("home");
     }
+
+
 }

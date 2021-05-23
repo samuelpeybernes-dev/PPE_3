@@ -50,14 +50,6 @@
                                     class="btn btn-primary">Modifier bilan</button></a></td>
                         <td><a href="{{route('visites.show', $UneVisite->idVisite)}}"><button type="button"
                                     class="btn btn-info">Information</button></a></td>
-                        <td>
-                            <form action="{{route('visites.destroy', $UneVisite->idVisite)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
 
                     </tr>
                 </tbody>

@@ -78,9 +78,9 @@
                         <td>{{$UneActivite->theme}}</td>
                         <td>{{$UneActivite->cocktailOffert}}</td>
                         @if($UneActivite->numAccord == true)
-                        <td><button class="btn btn-success">Validé</button></td>
+                        <td><a href="{{route('activite.edit', $UneActivite->idActivite)}}"><button class="btn btn-danger">Retirer accord</button></a>  </td>
                         @else
-                        <td><a href="{{route('activite.edit', $visiteur)}}"><button type="button" class="btn btn-success">Donner accord</button></a></td>
+                        <td><a href="{{route('activite.edit', $UneActivite->idActivite)}}"><button type="button" class="btn btn-success">Donner accord</button></a></td>
                         @endif
                         <td>
                             <form action="{{route('activite.destroy', $UneActivite->idActivite)}}" method="POST">

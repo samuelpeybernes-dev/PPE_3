@@ -73,6 +73,7 @@ class listevisiteController extends Controller
 
         $idPraticien = $visite->idPraticien;
         $praticien = Praticien::find($idPraticien);
+ 
 
         return view('Visites/editBilanVisiteur',compact('visite','id'),['medoc'=>$medoc, 'praticien'=>$praticien]);
     }

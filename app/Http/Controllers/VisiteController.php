@@ -74,7 +74,7 @@ class VisiteController extends Controller
 
         $visite->save();
   
-        return redirect('/home');
+        return redirect()->route('listevisite.show', $visite->idVisiteur);
         
     }
 
@@ -133,6 +133,6 @@ class VisiteController extends Controller
        $Visite->delete();
 
        //return redirect('Visiteurs/Home');
-       return redirect("home");
+       return redirect()->route('listevisite.show', $Visite->idVisiteur);
     }
 }

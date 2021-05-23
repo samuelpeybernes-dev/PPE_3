@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a href="{{url('home')}}"><button type="button" class="btn btn-primary">Retour</button></a>
+            <a href="{{route ('listevisite.show' , $visite->idVisiteur) }}"><button type="button" class="btn btn-primary">Retour</button></a>
             <br>
             <br>
             <div class="card">
