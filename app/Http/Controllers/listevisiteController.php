@@ -8,6 +8,7 @@ use App\Models\Visiteur;
 use App\Models\Produit;
 use App\Models\Praticien;
 use App\Models\Activite;
+use App\Models\comparatifVisites;
 
 class listevisiteController extends Controller
 {
@@ -54,8 +55,9 @@ class listevisiteController extends Controller
         $idvisiteur = $visiteur->idVisiteur;
         $lesVisites = Visite::all();
         $lesActivite = Activite::all();
+        $comparatifVisites = comparatifVisites::all();
         //dd($visite);
-        return view('Responsables/listevisite', ['visiteur'=>$idvisiteur, 'UneVisite'=>$lesVisites, 'UneActivite'=>$lesActivite]);
+        return view('Responsables/listevisite', ['visiteur'=>$idvisiteur, 'UneVisite'=>$lesVisites, 'UneActivite'=>$lesActivite, 'comparatifVisites'=>$comparatifVisites]);
     }
 
     /**
@@ -89,7 +91,7 @@ class listevisiteController extends Controller
     {
         $visite = Visite::find($id);
         $visite->update($request->all());
-        return redirect('/home');
+        return redirect('/home'); //Update EditBilanVisiteur
     }
 
     /**

@@ -16,7 +16,7 @@
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Médicament présenté</th>
-                        <th scope="col">Bilan</th>                        
+                        <th scope="col">Bilan</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -28,7 +28,7 @@
                         @if ($visiteur == $UneVisite->idVisiteur)
                         <td>{{$UneVisite->dateVisite}}</td>
                         <td>{{$UneVisite->medocPresente}}</td>
-                        <td>{{$UneVisite->bilanVisite}}</td>                        
+                        <td>{{$UneVisite->bilanVisite}}</td>
                         <td><a href="{{route('visites.edit', $UneVisite->idVisite)}}"><button type="button"
                                     class="btn btn-primary">Modifier</button></a></td>
                         <td><a href="{{route('visites.show', $UneVisite->idVisite)}}"><button type="button"
@@ -46,14 +46,42 @@
                 </tbody>
                 @endforeach
             </table>
-<br>
-<br>
+            <br>
+            <br>
+
+
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header">{{ __('Comparatif des Visites') }}</div>
+            </div>
+            <table class="table table-hover table-light">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nombres de visites</th>
+                        <th scope="col">Objectifs de Visites</th>
+                        <th scope="col">Comparatif Visites</th>
+                    </tr>
+                </thead>
+                @foreach($comparatifVisites as $comparatifVisites)
+                <tbody>
+                    <tr>
+                        @if ($visiteur == $comparatifVisites->idVisiteur)
+                        <td>{{$comparatifVisites->nbrVisites}}</td>
+                        <td>{{$comparatifVisites->objectifsVisite}}</td>
+                        <td>{{$comparatifVisites->Expr1}} %</td>
+                        @endif
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
+            <br>
+            <br>
+
 
 
             <div class="card text-white bg-secondary mb-3">
                 <div class="card-header">{{ __('Gestion des activitées complémentaires') }}</div>
             </div>
-        
+
             <table class="table table-hover table-light ">
                 <thead class="thead-dark">
                     <tr>
@@ -78,9 +106,11 @@
                         <td>{{$UneActivite->theme}}</td>
                         <td>{{$UneActivite->cocktailOffert}}</td>
                         @if($UneActivite->numAccord == true)
-                        <td><a href="{{route('activite.edit', $UneActivite->idActivite)}}"><button class="btn btn-danger">Retirer accord</button></a>  </td>
+                        <td><a href="{{route('activite.edit', $UneActivite->idActivite)}}"><button
+                                    class="btn btn-danger">Retirer accord</button></a> </td>
                         @else
-                        <td><a href="{{route('activite.edit', $UneActivite->idActivite)}}"><button type="button" class="btn btn-success">Donner accord</button></a></td>
+                        <td><a href="{{route('activite.edit', $UneActivite->idActivite)}}"><button type="button"
+                                    class="btn btn-success">Donner accord</button></a></td>
                         @endif
                         <td>
                             <form action="{{route('activite.destroy', $UneActivite->idActivite)}}" method="POST">

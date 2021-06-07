@@ -14,7 +14,7 @@ class Visiteur extends Model
     public $timestamps = false;
     
     protected $fillable = [
-        'idVisiteur', 'Objectif', 'Prime', 'avantage', 'idBudget'
+        'idVisiteur', 'Objectif', 'Prime', 'avantage', 'idBudget', 'nbrVisites', 'objectifsVisite'
     ];
 
   

@@ -31,6 +31,9 @@
       <th scope="col">Id</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
+      <th scope="col">Nombres Visites</th>
+      <th scope="col">Objectif Visite</th>
+      <th scope="col">Comparatif</th>
       <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -43,6 +46,8 @@
       <td>{{$UnVisiteur->idVisiteur}}</td>
       <td>{{$UnVisiteur->nomVisiteur}}</td>
       <td>{{$UnVisiteur->prenomVisiteur}}</td>
+      <td>{{$UnVisiteur->nbrVisites}}</td>
+      <td>{{$UnVisiteur->objectifsVisite}}</td>
       <td><a href="{{route('visiteurs.show', $UnVisiteur->idVisiteur)}}" ><button type="button" class="btn btn-info">Information</button></a></td>
       <td><a href="{{route ('listevisite.show' , $UnVisiteur->idVisiteur) }}"><button type="button" class="btn btn-info">Visites et Activitées</button></a></td>
       <td><a href="{{route('creevisite.show' , $UnVisiteur->idVisiteur)}}"><button type="button" class="btn btn-info">Ajouter une visite</button></a></td>

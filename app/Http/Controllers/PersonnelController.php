@@ -53,6 +53,7 @@ class PersonnelController extends Controller
             'Prime' => ['required'],
             'avantage' => ['required'],
             'idBudget' => ['required'],
+            'objectifVisite' =>['required'],
         ]);
 
 
@@ -62,6 +63,7 @@ class PersonnelController extends Controller
         $visiteur->Prime = $request->input('Prime');
         $visiteur->avantage = $request->input('avantage');
         $visiteur->idBudget = $request->input('idBudget');
+        $visiteur->objectifVisite =$request->input('objectifVisite');
 
         $visiteur = Visiteur::create($request->all());
 

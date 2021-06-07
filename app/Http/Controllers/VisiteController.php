@@ -116,7 +116,7 @@ class VisiteController extends Controller
     {
         $visite = Visite::find($id);
         $visite->update($request->all());
-        return redirect('home');
+        return redirect()->route('listevisite.show', $visite->idVisiteur); //Update EditVisiteResp
     }
 
     /**
@@ -133,6 +133,6 @@ class VisiteController extends Controller
        $Visite->delete();
 
        //return redirect('Visiteurs/Home');
-       return redirect()->route('listevisite.show', $Visite->idVisiteur);
+       return redirect()->route('listevisite.show', $Visite->idVisiteur); 
     }
 }
